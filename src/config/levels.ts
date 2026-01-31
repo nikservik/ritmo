@@ -10,14 +10,16 @@ export const DEFAULT_STEP_COUNT = 10
 export const DEFAULT_STEP_TTL_HOURS = 72
 export const DEFAULT_LEVEL_TTL_HOURS = 240
 
+const FIRST_LEVEL: LevelConfig = {
+  level: 1,
+  stepCount: DEFAULT_STEP_COUNT,
+  name: 'Уровень 1',
+  stepTtlHours: DEFAULT_STEP_TTL_HOURS,
+  levelTtlHours: DEFAULT_LEVEL_TTL_HOURS,
+}
+
 export const LEVELS: LevelConfig[] = [
-  {
-    level: 1,
-    stepCount: DEFAULT_STEP_COUNT,
-    name: 'Уровень 1',
-    stepTtlHours: DEFAULT_STEP_TTL_HOURS,
-    levelTtlHours: DEFAULT_LEVEL_TTL_HOURS,
-  },
+  FIRST_LEVEL,
   {
     level: 2,
     stepCount: DEFAULT_STEP_COUNT,
@@ -80,12 +82,12 @@ export const LEVELS: LevelConfig[] = [
     name: 'Уровень 10',
     stepTtlHours: DEFAULT_STEP_TTL_HOURS,
     levelTtlHours: DEFAULT_LEVEL_TTL_HOURS,
-  },
+  }
 ]
 
 export const MAX_LEVEL = LEVELS.length
 
 export function getLevelConfig(level: number): LevelConfig {
   const safeLevel = Math.min(Math.max(level, 1), MAX_LEVEL)
-  return LEVELS[safeLevel - 1]
+  return LEVELS.find((item) => item.level === safeLevel) ?? FIRST_LEVEL
 }

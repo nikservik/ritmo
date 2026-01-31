@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { MoonIcon, SunIcon } from '@heroicons/vue/24/solid'
+import { onMounted, ref } from 'vue'
+import { MoonIcon, SunIcon } from '@heroicons/vue/24/outline'
 
 type Theme = 'light' | 'dark'
 
@@ -28,25 +28,13 @@ onMounted(() => {
   const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches
   applyTheme(prefersDark ? 'dark' : 'light')
 })
-
-const activeButtonClass = computed(() =>
-  theme.value === 'dark'
-    ? 'bg-white/10 text-white'
-    : 'bg-black/8 text-gray-700',
-)
-
-const inactiveButtonClass = computed(() =>
-  theme.value === 'dark'
-    ? 'text-gray-400 hover:text-white'
-    : 'text-gray-500 hover:text-gray-900',
-)
 </script>
 
 <template>
-  <div class="mt-2 float-right inline-flex items-center gap-0.5 p-0.75 rounded-full bg-gray-950/5  dark:bg-white/10">
+  <div class="mt-4 float-right inline-flex items-center gap-0.5 p-0.75 rounded-full text-gray-700 dark:text-gray-200  bg-gray-950/5  dark:bg-white/10">
     <button
       type="button"
-      class="rounded-full p-1.5 bg-white text-gray-700 dark:bg-gray-900/50 dark:text-gray-400 dark:hover:text-gray-200 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+      class="rounded-full p-1.5 bg-white dark:bg-transparent  transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
       :aria-pressed="theme === 'light'"
       @click="setTheme('light')"
     >
@@ -55,8 +43,7 @@ const inactiveButtonClass = computed(() =>
     </button>
     <button
       type="button"
-      class="flex h-8 w-8 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
-      :class="theme === 'dark' ? activeButtonClass : inactiveButtonClass"
+      class="rounded-full p-1.5 dark:bg-gray-600"
       :aria-pressed="theme === 'dark'"
       @click="setTheme('dark')"
     >
