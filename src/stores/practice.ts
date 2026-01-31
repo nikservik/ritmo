@@ -9,8 +9,8 @@ const persistedStorage: PersistedStorage =
 
 export const usePracticeStore = defineStore('practice', {
   state: () => ({
-    currentLevel: 3,
-    currentStep: 4,
+    currentLevel: 1,
+    currentStep: 0,
     isPracticing: false,
     countdownStartedAt: null as number | null,
     expiresAt: null as number | null,
