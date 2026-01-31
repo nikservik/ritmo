@@ -22,10 +22,9 @@ export const usePracticeStore = defineStore('practice', {
       this.expiresAt = null
     },
     stopPractice(now = Date.now()) {
-      const testOffsetMs = hoursToMs(24)
       this.isPracticing = false
       this.advanceStep()
-      this.applyCountdown(now - testOffsetMs)
+      this.applyCountdown(now)
     },
     advanceStep() {
       const { stepCount } = getLevelConfig(this.currentLevel)
