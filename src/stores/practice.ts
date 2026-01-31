@@ -9,8 +9,8 @@ const persistedStorage: PersistedStorage =
 
 export const usePracticeStore = defineStore('practice', {
   state: () => ({
-    currentLevel: 1,
-    currentStep: 0,
+    currentLevel: 3,
+    currentStep: 4,
     isPracticing: false,
     countdownStartedAt: null as number | null,
     expiresAt: null as number | null,
@@ -22,9 +22,10 @@ export const usePracticeStore = defineStore('practice', {
       this.expiresAt = null
     },
     stopPractice(now = Date.now()) {
+      const testOffsetMs = hoursToMs(24)
       this.isPracticing = false
       this.advanceStep()
-      this.applyCountdown(now)
+      this.applyCountdown(now - testOffsetMs)
     },
     advanceStep() {
       const { stepCount } = getLevelConfig(this.currentLevel)

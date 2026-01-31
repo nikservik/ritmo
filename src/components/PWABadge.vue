@@ -69,7 +69,7 @@ function close() {
       >
         <div
           v-if="needRefresh"
-          class="pointer-events-auto w-full max-w-sm rounded-lg bg-gray-800 shadow-lg outline-1 -outline-offset-1 outline-white/10"
+          class="pointer-events-auto w-full max-w-sm rounded-lg bg-white  shadow-lg outline-1 outline-black/5 dark:bg-gray-800 dark:-outline-offset-1 dark:outline-white/10"
           aria-labelledby="toast-message"
           role="alert"
         >
@@ -79,23 +79,23 @@ function close() {
                 <ArrowPathIcon class="size-6 text-gray-400" aria-hidden="true" />
               </div>
               <div class="ml-3 w-0 flex-1 pt-0.5">
-                <p id="toast-message" class="text-sm font-medium text-white">
+                <p id="toast-message" class="text-sm font-medium text-gray-900 dark:text-white">
                   Доступно обновление
                 </p>
-                <p class="mt-1 text-sm text-gray-400">
+                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
                   При обновлении все данные остаются без изменений
                 </p>
                 <div class="mt-3 flex space-x-7">
                   <button
                     type="button"
-                    class="rounded-md text-sm font-medium text-indigo-400 hover:text-indigo-300 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-400"
+                    class="rounded-md text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 dark:focus:outline-indigo-400"
                     @click="updateServiceWorker()"
                   >
                     Обновить
                   </button>
                   <button
                     type="button"
-                    class="rounded-md text-sm font-medium text-gray-300 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-400"
+                    class="rounded-md text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 dark:text-gray-300 dark:hover:text-white dark:focus:outline-indigo-400"
                     @click="close"
                   >
                     Пропустить
@@ -105,7 +105,7 @@ function close() {
               <div class="ml-4 flex shrink-0">
                 <button
                   type="button"
-                  class="inline-flex rounded-md text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
+                  class="inline-flex rounded-md text-gray-400 hover:text-gray-500 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600 dark:hover:text-white dark:focus:outline-indigo-500"
                   @click="close"
                 >
                   <span class="sr-only">Close</span>

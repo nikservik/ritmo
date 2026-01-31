@@ -42,8 +42,8 @@ describe('practice store', () => {
 
     expect(store.isPracticing).toBe(false)
     expect(store.currentStep).toBe(1)
-    expect(store.countdownStartedAt).toBe(now.getTime())
-    expect(store.expiresAt).toBe(now.getTime() + hoursToMs(72))
+    expect(store.countdownStartedAt).toBe(now.getTime() - hoursToMs(24))
+    expect(store.expiresAt).toBe(now.getTime() + hoursToMs(48))
   })
 
   it('rolls over level when max steps reached', () => {
@@ -57,6 +57,6 @@ describe('practice store', () => {
 
     expect(store.currentLevel).toBe(2)
     expect(store.currentStep).toBe(0)
-    expect(store.expiresAt).toBe(now.getTime() + hoursToMs(240))
+    expect(store.expiresAt).toBe(now.getTime() + hoursToMs(216))
   })
 })
