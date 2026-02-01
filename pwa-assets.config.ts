@@ -5,7 +5,7 @@ import type { Preset } from '@vite-pwa/assets-generator/config';
 
 const preset: Preset = {
   transparent: {
-    sizes: [64, 180, 192, 512],
+    sizes: [64, 152, 192, 512],
     favicons: [[48, 'favicon.ico']]
   },
   maskable: {
